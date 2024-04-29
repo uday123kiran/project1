@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from.models import lenovo
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -84,7 +84,8 @@ def signout(request):
 
 def teaorder(request):
     return render(request,'teaorder.html')
-
+def sample(request):
+    return HttpResponse("Hello World!")
         
 
 
