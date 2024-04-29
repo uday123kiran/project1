@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class='u3'>
+
+    <form method ='POST'>
+        {% csrf_token %}
+        <h1>signup</h1>
+        <label for="firstname">firstname</label>
+        <input type="text" name='firstname' id='firstname'><br><br>
+        <label for="secondname">lastname</label>
+        <input type="text" name='secondname' id='secondname'><br><br>
+        <label for="email">Email</label>
+        <input type="email" name='email' id='email'><br><br>
+        <label for="username">username</label>
+        <input type="text" name='username' id='username'><br><br>
+        <label for="password">password</label>
+        <input type="password" id='password' name='password'><br><br>
+        <label for="cpassword">cpassword</label>
+        <input type="password" id='cpassword' name='cpassword'><br><br>
+        <button>signin</button>
+    
+    </form>
+</body>
+    {% endblock content %}

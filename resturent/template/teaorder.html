@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+<body class="z1">
+    
+
+{% block content %}
+<form method='POST'>
+    {% csrf_token %}
+    <h1>EVERY CUP OF TEA TELLS A NEW STORYS</h1>
+    <label for="name">itemname:</label>
+    <input type="text" id='name' name='name' placeholder='chainame'><br><br>
+    <label for="price">price:</label>
+    <input type="number" id='price' name='price' placeholder='price' ><br><br>
+
+    <button>submit</button>
+</form>
+{% endblock content %}
+</body>

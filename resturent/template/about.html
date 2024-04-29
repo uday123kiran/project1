@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<body class='u2'>
+<form method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    <br>
+<h1 class='y1'>Hello foodies welcome to dark devil resturent</h1>
+
+<label for="name">fooditem</label>
+<input type="text" name='name' id='name' placeholder='enter food name' value='{{item.name}}'><br><br>
+<label for="price">price</label>
+<input type="number" name='price' id='price'placeholder='$' value='{{item.price}}' ><br>
+
+<label for="foodtype"><h3>FOODTYPE</h3></label>
+
+<input type="radio" name='foodtype' id='veg' value='veg'{% if item.foodtype == 'veg' %}  checked {% endif %}>
+<label for="veg">veg</label>
+
+
+<input type="radio" name='foodtype' id='nonveg' value='nonveg'{% if item.foodtype == 'nonveg' %} checked {% endif %}>
+<label for="nonveg">nonveg</label><br><br>
+
+<label for="image">Image</label>
+<input type="file" name='image' id='image' class='image'  value='{{item.image}}'><br><br>
+
+<label for="video">video</label>
+<input type="file" name='video' id='video'  value='{{item.video}}'><br><br>
+
+<button>submit</button><br><br>
+</form>
+
+<button><a href="{% url "signout" %}">logout</a></button>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>sno</th>
+            <th>foodName</th>
+            <th>price</th>
+            <th>foodtype</th>
+            <th>image</th>
+            <th>video</th>
+            <th>actions</th>
+        </tr>
+    
+    </thead>
+    <tbody>
+    {% for data in  data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.foodtype }}</td>
+            <td><img src="/media/{{data.image}}" alt="" height="100px" weight='100'></td>
+            <td><img src="/media/{{data.video}}"></td>
+            <td><a href="{% url 'delete' data.id %}">delete</a>
+            <a href="{% url 'edit' data.id %}">edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+{% endblock content %}
+
+
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body class='u7'>
+    <form method='POST'>
+        {% csrf_token %}
+        <h1><--> Food Items <--></h1>
+        <button><a href="{% url 'chai' %}">chai</a></button>
+        <button><a href="{% url 'tiffen' %}">tiffen</a></button>
+        <button><a href="{% url 'veg'%}">veg</a></button>
+        <button><a href="{% url 'nonveg' %}">nonveg</a></button>
+
+    </form>
+</body>
+{% endblock content %}
