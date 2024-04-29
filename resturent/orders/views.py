@@ -84,8 +84,7 @@ def signout(request):
 
 def teaorder(request):
     return render(request,'teaorder.html')
-def sample(request):
-    return HttpResponse("Hello World!")
+
         
 
 
